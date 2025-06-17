@@ -1,0 +1,94 @@
+/* /immediately-translate-extension/css/popup.css */
+:root {
+  --primary-text: #2c3e50;
+  --secondary-text: #888;
+  --border-color: #e0e0e0;
+  --background-color: #f9f9f9;
+  --danger-color: #e74c3c;
+  --danger-hover-bg: #fbecec;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  width: 380px;
+  max-height: 450px;
+  margin: 0;
+  color: var(--primary-text);
+  background-color: var(--background-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  background-color: var(--background-color);
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.actions button {
+  padding: 5px 12px;
+  margin-left: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  background-color: #fff;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.actions button:hover {
+  background-color: #f5f5f5;
+  border-color: #bbb;
+}
+
+.actions button.danger {
+  border-color: var(--danger-color);
+  color: var(--danger-color);
+}
+
+.actions button.danger:hover {
+  background-color: var(--danger-hover-bg);
+}
+
+.history-container {
+  padding: 8px 16px 16px;
+}
+
+.history-item {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-item .original {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+}
+
+.history-item .translated {
+  font-size: 14px;
+  color: #555;
+  font-weight: 600; /* 与 banner 一致 */
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--secondary-text);
+  padding: 40px 20px;
+  font-size: 14px;
+}

@@ -1,0 +1,26 @@
+<!-- /immediately-translate-extension/popup.html -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>翻译历史</title>
+  <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+  <div class="header">
+    <h1>翻译历史</h1>
+    <div class="actions">
+      <button id="export-json-btn" title="将历史记录导出为 JSON 文件">导出</button>
+      <button id="clear-history-btn" class="danger" title="清空所有历史记录">清空</button>
+    </div>
+  </div>
+  
+  <div id="history-list" class="history-container">
+    <!-- 历史记录将通过 JS 动态插入到这里 -->
+    <p id="empty-state" class="empty-state">还没有翻译历史哦，快去试试吧！</p>
+  </div>
+
+  <!-- 确保在 body 结束前引入 JS -->
+  <script src="js/popup.js"></script>
+</body>
+</html>
