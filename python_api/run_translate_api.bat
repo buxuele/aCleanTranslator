@@ -42,7 +42,7 @@ echo %date% %time% 成功切换到代码文件夹 >> %LOGFILE%
 :: 检查 uvicorn 是否可用并静默运行
 where uvicorn >nul 2>&1
 if %ERRORLEVEL%==0 (
-    start /min uvicorn translate_api:app --host 127.0.0.1 --port 8989
+    start /min pythonw translate_api.pyw
     echo %date% %time% uvicorn 启动成功 >> %LOGFILE%
 ) else (
     echo %date% %time% 错误：uvicorn 未安装或未在虚拟环境中找到 >> %LOGFILE%
