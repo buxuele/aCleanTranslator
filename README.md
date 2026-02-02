@@ -1,73 +1,66 @@
-
 ![1](./效果图/img1.png)
 ![2](./效果图/img2.png)
 
+# 立马翻译 - Chrome 插件
 
-# 立马翻译 (Immediately Translate) - Chrome 插件
+Chrome 浏览器划词翻译插件，选中英文文本右键即时翻译成中文。
 
-“立马翻译”是一款为效率和简洁而生的 Chrome 浏览器插件。它专注于提供最核心的翻译功能：将用户在网页上选中的英文文本（单词或句子）即时翻译成中文。产品摒弃一切冗余功能，旨在为用户提供一个零干扰、响应迅速、操作无缝的沉浸式翻译体验。
+## 功能特性
 
---- 
+- 划词翻译：选中文本右键翻译
+- 悬浮面板：居中显示，点击空白关闭
+- 历史记录：自动保存最近100条翻译
+- 导出功能：可导出 JSON 格式
 
-## 项目起源, 起因
-[见这里](https://blog.csdn.net/waterHBO/article/details/148702167?spm=1001.2014.3001.5501)
+## 安装使用
 
-## 写的过程
-[在这里](https://blog.csdn.net/waterHBO/article/details/148725898?spm=1001.2014.3001.5501)
+### 1. 配置 API Key
 
+访问 [Groq Console](https://console.groq.com/) 获取免费 API Key
 
+复制 `js/config.example.js` 为 `js/config.js`，替换 API Key：
+```javascript
+const CONFIG = {
+  GROQ_API_KEY: "your-api-key-here",
+  GROQ_API_URL: "https://api.groq.com/openai/v1/chat/completions",
+  MODEL: "openai/gpt-oss-120b"
+};
+```
 
-## ✨ 功能特性 (Features)
+### 2. 加载扩展
 
-*   **极致简洁 (Simplicity):** 只提供核心的划词翻译功能，无任何不相关的设置或广告。
-*   **即时响应 (Instantaneity):** 从用户发起翻译指令到看到结果，感知延迟降到最低。
-*   **无缝体验 (Seamless Experience):** 翻译结果在当前页面内顶部横幅展示，不打断用户当前的浏览流程。
-*   **网络兼容性 (Network Compatibility):** 插件的网络请求适应用户的系统代理设置。
-*   **历史记录 (History):** 自动保存翻译历史，方便回顾。
-*   **导出功能 (Export):** 可将翻译历史导出为 JSON 格式，作为生词本使用。
+1. Chrome 地址栏输入 `chrome://extensions`
+2. 开启右上角"开发者模式"
+3. 点击"加载已解压的扩展程序"
+4. 选择本项目文件夹
 
----
+### 3. 使用
 
-## 🛠️ 安装指南 (Installation Guide)
+1. 打开任意网页
+2. 选中英文文本
+3. 右键点击"立马翻译"
+4. 查看翻译结果
 
-  
-### 手动加载本地文件 (Load Unpacked)
+**重要**：首次使用或重新加载扩展后，需刷新页面（F5）
 
-如果你想从源代码安装，或者在插件上架前试用，可以按照以下步骤操作：
+## 常见问题
 
-1.  **下载代码 (Download the Code):**
-    *   克隆本仓库到本地：`git clone https://github.com/your-username/immediately-translate-extension.git`
-    *   或者直接下载 ZIP 文件并解压。
-2.  **打开 Chrome 扩展程序页面 (Open Chrome Extensions Page):**
-    *   在 Chrome浏览器地址栏输入 `chrome://extensions` 并回车。
-3.  **开启开发者模式 (Enable Developer Mode):**
-    *   在页面右上角，找到并打开“开发者模式”的开关。
-4.  **加载已解压的扩展程序 (Load Unpacked):**
-    *   点击页面左上角的“加载已解压的扩展程序”按钮。
-    *   在弹出的文件选择对话框中，选择你刚刚下载并解压的插件文件夹（例如 `immediately-translate-extension` 整个文件夹）。
-5.  **完成！(Done!):**
-    *   “立马翻译”插件现在应该会出现在你的扩展程序列表中，并在浏览器工具栏显示图标。
+### 翻译没反应？
 
----
+刷新页面（F5），确认控制台（F12）看到：
+```
+[CS] 内容脚本已加载并准备接收消息
+```
 
-## 🚀 使用方法 (How to Use)
+### 翻译失败？
 
-1.  在任何网页上，用鼠标**选中**你想要翻译的英文单词或句子。
-2.  **右键单击**选中的文本。
-3.  在弹出的上下文菜单中，点击 **“立马翻译”** 选项。
-4.  翻译结果会立即显示在当前页面的顶部横幅中。横幅会在几秒后自动消失，或者你可以点击横幅上的关闭按钮（“×”）提前关闭。
+检查 `js/background.js` 中的 API Key 是否正确
 
----
+### 查看历史记录
 
-## 📜 翻译历史与导出 (Translation History & Export)
+点击浏览器工具栏的扩展图标
 
-*   **查看历史 (View History):**
-    *   点击浏览器工具栏上的“立马翻译”插件图标。
-    *   弹出的窗口会显示你最近的翻译历史记录。
-*   **导出历史 (Export History):**
-    *   在弹出的历史记录窗口中，点击右上角的 **“导出”** 按钮。
-    *   翻译历史将以 JSON 格式下载到你的电脑。
-*   **清空历史 (Clear History):**
-    *   点击历史记录窗口右上角的 **“清空”** 按钮可以删除所有翻译记录。
+## 项目起源
 
- 
+- [起因](https://blog.csdn.net/waterHBO/article/details/148702167?spm=1001.2014.3001.5501)
+- [过程](https://blog.csdn.net/waterHBO/article/details/148725898?spm=1001.2014.3001.5501)
