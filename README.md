@@ -60,7 +60,3 @@ const CONFIG = {
 
 点击浏览器工具栏的扩展图标
 
-## 项目起源
-
-- [起因](https://blog.csdn.net/waterHBO/article/details/148702167?spm=1001.2014.3001.5501)
-- [过程](https://blog.csdn.net/waterHBO/article/details/148725898?spm=1001.2014.3001.5501)
