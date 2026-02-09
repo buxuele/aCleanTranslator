@@ -3,11 +3,10 @@
   "name": "立马翻译",
   "version": "1.1.0",
   "description": "选中文字，右键即时翻译。支持历史记录导出。",
-  "permissions": ["contextMenus", "storage", "downloads"],
+  "permissions": ["contextMenus", "storage", "downloads", "sidePanel"],
   "host_permissions": ["https://api.groq.com/*"],
   "background": {
-    "service_worker": "js/background.js",
-    "type": "module"
+    "service_worker": "js/background.js"
   },
   "content_scripts": [
     {
@@ -17,13 +16,10 @@
     }
   ],
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icons/icon16_active.png",
-      "48": "icons/icon48_active.png",
-      "128": "icons/icon128_active.png"
-    },
-    "default_title": "查看翻译历史"
+    "default_title": "打开翻译面板"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
   },
   "icons": {
     "16": "icons/icon16_active.png",

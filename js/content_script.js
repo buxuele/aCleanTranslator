@@ -11,6 +11,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 function showTranslationBanner(type, payload) {
+  console.log('[CS] 2. 显示翻译banner，类型:', type);
   const existingBanner = document.getElementById(BANNER_ID);
   if (existingBanner) existingBanner.remove();
 
@@ -33,7 +34,9 @@ function showTranslationBanner(type, payload) {
     ${contentHtml}
   `;
   
+  console.log('[CS] Banner内容:', banner.innerHTML);
   document.body.appendChild(banner);
+  console.log('[CS] 3. Banner已添加到DOM');
 
   const closeBtn = banner.querySelector('.it-close-btn');
   closeBtn.addEventListener('click', (e) => {

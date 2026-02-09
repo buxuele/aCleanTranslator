@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>翻译面板</title>
+  <link rel="stylesheet" href="css/sidepanel.css">
+</head>
+<body>
+  <div class="translate-section">
+    <textarea id="input-text" placeholder="输入中文，翻译为英文"></textarea>
+    <div class="translate-row">
+      <button id="translate-btn">翻译</button>
+    </div>
+    <div id="result-text"></div>
+  </div>
+
+  <div class="header">
+    <h1>翻译历史</h1>
+    <div class="actions">
+      <button id="export-json-btn">导出</button>
+      <button id="clear-history-btn">清空</button>
+    </div>
+  </div>
+  
+  <div id="history-list" class="history-container">
+    <p id="empty-state" class="empty-state">还没有翻译历史</p>
+  </div>
+
+  <script src="js/sidepanel.js"></script>
+</body>
+</html>
